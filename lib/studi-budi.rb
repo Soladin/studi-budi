@@ -5,4 +5,7 @@ class StudiBudi
     load a previously saved collection?"
     @action = STDIN.gets.chomp()
   end
+
+  def testingggg
+  end
 end
