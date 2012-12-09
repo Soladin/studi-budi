@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = "studi-budi"
-  s.version = "0.0.0"
+  s.version = "0.0.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Sol W"]
@@ -28,7 +28,8 @@ Gem::Specification.new do |s|
     "VERSION",
     "lib/studi-budi.rb",
     "spec/spec_helper.rb",
-    "spec/studi-budi_spec.rb"
+    "spec/studi-budi_spec.rb",
+    "studi-budi.gemspec"
   ]
   s.homepage = "http://github.com/Soladin/studi-budi"
   s.licenses = ["MIT"]
