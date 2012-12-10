@@ -6,6 +6,6 @@ class StudiBudi
     @action = STDIN.gets.chomp()
   end
 
-  def testingggg
+  def just_testin
   end
 end
