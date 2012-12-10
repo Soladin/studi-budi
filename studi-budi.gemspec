@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = "studi-budi"
-  s.version = "0.0.1"
+  s.version = "0.0.2"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Sol W"]
-  s.date = "2012-12-09"
+  s.date = "2012-12-10"
   s.description = "Allows you to create sets of flash cards and review them"
   s.email = "capnsol@gmail.com"
   s.extra_rdoc_files = [
