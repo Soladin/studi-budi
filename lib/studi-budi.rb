@@ -1,4 +1,9 @@
 class StudiBudi
+
+  # def user_input
+  #   gets.chomp
+  # end
+
   def initialize
     puts "Welcome to Studi Budi!
     Would you like to start a new flash card collection or
@@ -7,24 +12,52 @@ class StudiBudi
     2. Load"
     action = gets.chomp
 
-    while action != "1" : "2"
+    until (action == "1" or action == "2")
       puts "Please enter '1' to create or '2' to load."
       action = gets.chomp
-      ##########################
+    end
     if action == "1"
-      self.create                 # Probably no self. on those
+      create
     elsif action == "2"
-      self.load
-    else
-      "Please enter '1' to create or '2' to load."
+      load
+    end
+    # until (action = user_input) and (action == "1" or action == "2")
+    #   puts "Please enter '1' to create or '2' to load."
+    #   if action == "1"
+    #     create                 # Probably no self. on those
+    #   elsif action == "2"
+    #     load
+    #   end
+    # end
 
+# class StudiBudi
+#   def initialize
+#     puts "Welcome to Studi Budi!
+#     Would you like to start a new flash card collection or
+#     load a previously saved collection?
+#     1. Create
+#     2. Load"
+#     action = gets.chomp
+
+#     until gets.chomp == "1" or gets.chomp == "2"
+#       puts "Please enter '1' to create or '2' to load."
+
+
+    # if action == "1"
+    #   create                 # Probably no self. on those
+    # elsif action == "2"
+    #   load
+    # else
+    #   "Please enter '1' to create or '2' to load."
   end
 
   def create
     puts "Enter the name of your new collection:"
     @collection_name = gets.chomp
+    puts "Enter the file path of your new collection (leave off the last \"/\"):"
+    @collection_path = gets.chomp
     # something about setting up the collection hash & file here
-    @collection_name = File.open("~/Desktop/#{@collection_name}.rb", "r+")
+    @file = File.open("#{@collection_path}/#{collection_name}.rb", "r+")
     menu
   end
 
@@ -43,7 +76,7 @@ class StudiBudi
       adding_cards
     elsif pref == "2"
       reviewing_cards   # need to do same kind of thing as in initialize
-
+    end
   end
 
   def adding_cards
@@ -52,7 +85,7 @@ class StudiBudi
       reviewing_cards
     else
       gets.chomp.split(",")
-
+    end
   # for key, value in the_gets do
   #   {} << key => value
   #   until gets == "end"
@@ -80,3 +113,5 @@ class StudiBudi
     Pst! You also got #{cards_wrong} flash cards wrong."
   end
 end
+
+start = StudiBudi.new
