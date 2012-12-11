@@ -1,9 +1,4 @@
 class StudiBudi
-
-  # def user_input
-  #   gets.chomp
-  # end
-
   def initialize
     puts "Welcome to Studi Budi!
     Would you like to start a new flash card collection or
@@ -21,35 +16,17 @@ class StudiBudi
     elsif action == "2"
       load
     end
-    # until (action = user_input) and (action == "1" or action == "2")
-    #   puts "Please enter '1' to create or '2' to load."
-    #   if action == "1"
-    #     create                 # Probably no self. on those
-    #   elsif action == "2"
-    #     load
-    #   end
-    # end
-
-# class StudiBudi
-#   def initialize
-#     puts "Welcome to Studi Budi!
-#     Would you like to start a new flash card collection or
-#     load a previously saved collection?
-#     1. Create
-#     2. Load"
-#     action = gets.chomp
-
-#     until gets.chomp == "1" or gets.chomp == "2"
-#       puts "Please enter '1' to create or '2' to load."
-
-
-    # if action == "1"
-    #   create                 # Probably no self. on those
-    # elsif action == "2"
-    #   load
-    # else
-    #   "Please enter '1' to create or '2' to load."
   end
+
+            ##### could really just make one method for opening. don't need two for create/load
+  # def opening(create_or_load)
+  #   puts "Enter the name of your new collection:"
+  #   @collection_name = gets.chomp
+  #   puts "Enter the file path of your new collection (leave off the last \"/\"):"
+  #   @collection_path = gets.chomp
+  #   # something about setting up the collection hash & file here
+  #   @file = File.open("#{@collection_path}/#{collection_name}.rb", "r+")
+  #   adding_cards
 
   def create
     puts "Enter the name of your new collection:"
@@ -58,12 +35,16 @@ class StudiBudi
     @collection_path = gets.chomp
     # something about setting up the collection hash & file here
     @file = File.open("#{@collection_path}/#{collection_name}.rb", "r+")
-    menu
+    adding_cards
   end
 
   def load
-    # so create and load should both lead to either adding_cards or reviewing_cards
-
+    puts "Enter the name of your existing collection:"
+    @collection_name = gets.chomp
+    puts "Enter the file path of your existing collection (leave off the last \"/\"):"
+    @collection_path = gets.chomp
+    @file = File.open("#{@collection_path}/#{collection_name}.rb", "r+")
+    menu
   end
 
   def menu
@@ -79,8 +60,34 @@ class StudiBudi
     end
   end
 
+
+  # so they're going to need to read the first line
+
   def adding_cards
-    puts "Type the term you'd like to practice and its matching answer separated by a comma, then hit [enter]. This adds that 'card' to your collection. To "
+    puts "Type the term you'd like to practice and its answer separated by a comma, then hit [enter]. This adds that 'card' to your collection. This will continue until BLAHBLAH To review your cards BLAHBLAHBLAH"
+    set = gets.chomp.split(",")
+    key = set[0]
+    value = set[1]
+    @file.write(key, "\n", value, "\n")
+
+    # until set == "review"
+      
+
+    #   puts "Please enter '1' to create or '2' to load."
+    #   action = gets.chomp
+    # end
+    # if set == "review"
+    # end
+
+
+
+
+
+
+
+
+
+
     if gets.chomp == "review"
       reviewing_cards
     else
