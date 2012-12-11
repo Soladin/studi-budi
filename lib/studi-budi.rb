@@ -5,17 +5,78 @@ class StudiBudi
     load a previously saved collection?
     1. Create
     2. Load"
-    @action = STDIN.gets.chomp()
+    action = gets.chomp
 
-    # if @action == "1"
-
+    while action != "1" : "2"
+      puts "Please enter '1' to create or '2' to load."
+      action = gets.chomp
+      ##########################
+    if action == "1"
+      self.create                 # Probably no self. on those
+    elsif action == "2"
+      self.load
+    else
+      "Please enter '1' to create or '2' to load."
 
   end
 
-  def create_collection
+  def create
+    puts "Enter the name of your new collection:"
+    @collection_name = gets.chomp
+    # something about setting up the collection hash & file here
+    @collection_name = File.open("~/Desktop/#{@collection_name}.rb", "r+")
+    menu
   end
+
+  def load
+    # so create and load should both lead to either adding_cards or reviewing_cards
+
+  end
+
+  def menu
+    puts "'#{@collection_name}' Collection Menu
+    Would you like to add cards to this collection or review cards already in this collection?
+    1. Add cards
+    2. Review cards"
+    pref = gets.chomp
+    if pref == "1"
+      adding_cards
+    elsif pref == "2"
+      reviewing_cards   # need to do same kind of thing as in initialize
+
+  end
+
+  def adding_cards
+    puts "Type the term you'd like to practice and its matching answer separated by a comma, then hit [enter]. This adds that 'card' to your collection. To "
+    if gets.chomp == "review"
+      reviewing_cards
+    else
+      gets.chomp.split(",")
 
   # for key, value in the_gets do
   #   {} << key => value
   #   until gets == "end"
+  end
+
+  def reviewing_cards
+    puts "Let's review some of your cards. To exit, simply hit [enter]."
+
+    while gets.chomp != nil
+      cards_correct = 0
+      cards_wrong = 0
+
+      puts current_card = HASHHH[rand]
+      user_answer = gets.chomp
+      if user_answer == HASHHH[current_card]
+        puts "CORRECT"
+        cards_correct += 1
+      else
+        puts "WRONG"
+        cards_wrong += 1
+      end
+    end
+
+    puts "You got #{cards_correct} flash cards correct. Good job!
+    Pst! You also got #{cards_wrong} flash cards wrong."
+  end
 end
