@@ -1,6 +1,8 @@
 = studi-budi
 
-Description goes here.
+Studi Budi allows you to create and save collections of "flash cards".
+
+Once one of your collections has some cards in it, you can practice with them. Studi Budi will randomly cycle through the cards in your chosen collection and quiz you on them. When you're finished, it will tell you how many you got correct and how many you got wrong.
 
 == Contributing to studi-budi
  
