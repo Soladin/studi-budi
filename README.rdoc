@@ -1,5 +1,7 @@
 = studi-budi
 
+{<img src="https://travis-ci.org/[Soladin]/[studi-budi].png" />}[https://travis-ci.org/[Soladin]/[studi-budi]]
+
 Studi Budi allows you to create, save, and review collections of "flash cards". 
 
 You'll first be asked if you'd like to create a new collection or load a previously saved collection.
